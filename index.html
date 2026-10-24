@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Manifold Operations — Offensive Security Tooling & Red Team Operations</title>
+  <meta name="description" content="Manifold Operations is a specialized offensive security firm founded by Piyusha Akash (0x3xp). Custom tool engineering, payload development, reverse engineering, adversary simulation, and original vulnerability research (CVE-2026-115449).">
+  <meta name="author" content="Piyusha Akash / Manifold Operations">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23080808'/><text x='16' y='24' font-size='22' text-anchor='middle' fill='%23cc0000' font-weight='bold' font-family='monospace'>M</text></svg>">
+  <link rel="canonical" href="https://manifoldoperations.vercel.app/">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Manifold Operations — Offensive Security & Vulnerability Research">
+  <meta property="og:description" content="Offensive security tooling, red team operations, reverse engineering, and vulnerability research. Home of CVE-2026-115449 and low-level security research.">
+  <meta property="og:url" content="https://manifoldoperations.vercel.app/">
+  <meta property="og:image" content="https://manifoldoperations.vercel.app/assets/logo.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@manifoldops">
+  <meta name="twitter:creator" content="@manifoldops">
+  <meta name="twitter:title" content="Manifold Operations — Offensive Security & Vulnerability Research">
+  <meta name="twitter:description" content="Custom tool engineering, red team operations, payload development, and vulnerability research (CVE-2026-115449).">
+  <meta name="twitter:image" content="https://manifoldoperations.vercel.app/assets/logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="brand">
+      <img src="assets/logo.png" class="brand-mark" alt="Manifold Operations Logo">
+      <span class="brand-name">Manifold Operations</span>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#cve-section">CVE Advisory</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#upstream-section">Upstream</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="https://github.com/ManifoldOps" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+
+    <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAVIGATION DRAWER -->
+<div class="mobile-nav">
+  <ul class="mobile-nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#cve-section">CVE-2026-115449 Advisory</a></li>
+    <li><a href="#projects">Research & Projects</a></li>
+    <li><a href="#upstream-section">Upstream Patches</a></li>
+    <li><a href="#team">Founder & Team</a></li>
+    <li><a href="https://github.com/ManifoldOps" target="_blank" rel="noopener">GitHub (ManifoldOps)</a></li>
+    <li><a href="https://0x3xp.github.io" target="_blank" rel="noopener">Founder Portfolio (0x3xp)</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-watermark">MANIFOLD</div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badges-strip">
+          <div class="badge badge-red">
+            <span class="badge-pulse-dot"></span>
+            <span>Authorized Engagements Only</span>
+          </div>
+          <a href="#cve-section" class="badge">
+            <span style="color: var(--red);">★</span>
+            <span>CVE-2026-115449 Disclosed</span>
+          </a>
+        </div>
+
+        <h1 class="hero-h1">
+          Offensive Security<br>
+          <span>Tooling</span> and<br>
+          Red Team Operations
+        </h1>
+
+        <p class="hero-desc">
+          Manifold Operations is a specialized offensive security firm delivering custom tool engineering, advanced payload development, reverse engineering, and original vulnerability research.
+        </p>
+
+        <div class="hero-btns">
+          <a href="#services" class="btn btn-fill">Our Services</a>
+          <a href="#cve-section" class="btn btn-red-outline">CVE Advisory ↗</a>
+          <a href="#projects" class="btn btn-outline">Research & Tooling</a>
+          <a href="https://github.com/ManifoldOps" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+        </div>
+
+        <!-- Metric counters bar -->
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <div class="metric-val">1<span>CVE</span></div>
+            <div class="metric-lbl">Disclosed</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">7<span>Patches</span></div>
+            <div class="metric-lbl">libslirp upstream</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">6<span>+</span></div>
+            <div class="metric-lbl">R&D Frameworks</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">100<span>%</span></div>
+            <div class="metric-lbl">In-House Tech</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-logo-wrapper">
+          <img src="assets/logo.png" class="hero-logo-img" alt="Manifold Operations Emblems">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- SERVICES -->
+<section id="services" class="section-wrap">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-kicker">
+        <div class="kicker-line"></div>
+        <span class="kicker-text">What We Do</span>
+      </div>
+      <h2 class="section-h2">Purpose-built for <span>real operations.</span></h2>
+      <p class="section-sub">Every capability is researched, developed, and tested in-house. No third-party kits. No off-the-shelf dependencies.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="svc">
+        <div class="svc-tag">OST</div>
+        <h3 class="svc-title">Offensive Security Tooling</h3>
+        <p class="svc-desc">Custom malware and operator tooling developed from scratch for authorized security engagements, tailored to specific target environments and operational objectives.</p>
+      </div>
+
+      <div class="svc">
+        <div class="svc-tag">Payload Engineering</div>
+        <h3 class="svc-title">Advanced Payload Development</h3>
+        <p class="svc-desc">Shellcode staging, custom loaders, and systematic evasion of modern AV and EDR detection surfaces through deep endpoint telemetry research.</p>
+      </div>
+
+      <div class="svc">
+        <div class="svc-tag">RE</div>
+        <h3 class="svc-title">Reverse Engineering</h3>
+        <p class="svc-desc">Windows binary analysis, PE structure examination, x64 disassembly, debugging, and reverse engineering of undocumented kernel and protocol behaviors.</p>
+      </div>
+
+      <div class="svc">
+        <div class="svc-tag">Red Team</div>
+        <h3 class="svc-title">Red Team Operations</h3>
+        <p class="svc-desc">Full-spectrum adversary simulation from initial access through post-exploitation using custom operator tooling and realistic threat actor TTPs.</p>
+      </div>
+
+      <div class="svc">
+        <div class="svc-tag">SIEM</div>
+        <h3 class="svc-title">Wazuh Deployment and Tuning</h3>
+        <p class="svc-desc">Full Wazuh SIEM setup, agent deployment, custom rule development, and ongoing detection engineering for accurate and low-noise alerting.</p>
+      </div>
+
+      <div class="svc">
+        <div class="svc-tag">Endpoint</div>
+        <h3 class="svc-title">EDR and XDR Integration</h3>
+        <p class="svc-desc">EDR and XDR platform deployment, telemetry configuration, and detection tuning to maximize endpoint visibility across complex enterprise environments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- VULNERABILITY DISCLOSURE / CVE SPOTLIGHT -->
+<section id="cve-section" class="section-wrap">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-kicker">
+        <div class="kicker-line"></div>
+        <span class="kicker-text">Vulnerability Research & Disclosure</span>
+      </div>
+      <h2 class="section-h2">Original Discovery: <span>CVE-2026-115449</span></h2>
+      <p class="section-sub">
+        Security research conducted by Manifold Operations founder Piyusha Akash (0x3xp) led to the identification and upstream patching of a hypervisor NAT isolation vulnerability in libslirp.
+      </p>
+    </div>
+
+    <!-- MAIN CVE BANNER CARD -->
+    <div class="cve-banner-box">
+      <div class="cve-header-row">
+        <div class="cve-id-group">
+          <div class="cve-id-title">CVE-2026-115449 <span>/ libslirp</span></div>
+          <div class="cve-meta-tags">
+            <span><strong>Target:</strong> freedesktop.org / libslirp (QEMU Network Stack)</span>
+            <span>·</span>
+            <span><strong>Disclosed:</strong> Oct 2026</span>
+            <span>·</span>
+            <span><strong>Reporter:</strong> Piyusha Akash</span>
+          </div>
+        </div>
+
+        <div class="cve-badges-row">
+          <span class="badge badge-red">CWE-200 Info Disclosure</span>
+          <span class="badge badge-green">Upstream Merged</span>
+          <span class="badge">CVSS:3.1 3.5 (Low)</span>
+        </div>
+      </div>
+
+      <!-- RED HAT OFFICIAL ACKNOWLEDGEMENT -->
+      <div class="ack-quote-box">
+        <p>"Red Hat would like to thank <strong>Piyusha Akash</strong> for reporting this issue."</p>
+        <span class="ack-quote-source">Official Red Hat Product Security Advisory · Bugzilla RHBZ#2558916</span>
+      </div>
+
+      <div class="cve-grid-2col">
+        <div class="cve-explanation">
+          <h3 style="font-size: 18px; margin-bottom: 12px; font-weight: 600;">Vulnerability Overview & Impact</h3>
+          <p>
+            During source code auditing of <strong>libslirp</strong>—the user-mode TCP/IP networking stack powering QEMU, VirtualBox, and hypervisors worldwide—a flaw was identified in the handling of ICMP echo requests.
+          </p>
+          <p>
+            When the fallback ICMP socket path is engaged (due to restricted <code>ping_group_range</code>) and an unprivileged guest pings a non-existent host on the hypervisor LAN, the echo reply length is not updated to match actual data received from the host.
+          </p>
+          <p>
+            This length mismatch causes trailing uninitialized packet buffer slices containing the <strong>host hypervisor's real physical IP address</strong> to be leaked into the guest echo reply, breaking the NAT containment boundary that user-mode networking is designed to enforce.
+          </p>
+          
+          <div style="margin-top: 18px;">
+            <a href="cve-2026-115449.html" class="btn btn-sm btn-red-outline">Read Full Technical Advisory →</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size: 16px; margin-bottom: 12px; font-weight: 600;">CVSS v3.1 Scoring Metrics</h3>
+          <table class="cve-cvss-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Base Score</td>
+                <td>3.5 (Low Severity)</td>
+              </tr>
+              <tr>
+                <td>Attack Vector</td>
+                <td>Network (AV:N)</td>
+              </tr>
+              <tr>
+                <td>Attack Complexity</td>
+                <td>High (AC:H)</td>
+              </tr>
+              <tr>
+                <td>Privileges Required</td>
+                <td>Low (PR:L)</td>
+              </tr>
+              <tr>
+                <td>User Interaction</td>
+                <td>None (UI:N)</td>
+              </tr>
+              <tr>
+                <td>Scope</td>
+                <td>Changed (S:C)</td>
+              </tr>
+              <tr>
+                <td>Confidentiality</td>
+                <td>Low (C:L - 4 bytes IP)</td>
+              </tr>
+              <tr>
+                <td>Integrity / Availability</td>
+                <td>None / None (I:N / A:N)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CODE DIFF BOX -->
+      <div class="diff-container">
+        <div class="diff-header">
+          <span>libslirp / src / ip_icmp.c & ip6_icmp.c — Patch Diff</span>
+          <button class="copy-code-btn btn btn-sm btn-outline" data-target="cve-diff-code" style="padding: 3px 8px; font-size: 10px;">Copy Diff</button>
+        </div>
+        <div class="diff-body">
+          <pre id="cve-diff-code"><span class="diff-ctx">     } else {</span>
+<span class="diff-add">+        m->m_len = hlen + len;</span>
+<span class="diff-add">+        ip->ip_len = htons(hlen + len);</span>
+<span class="diff-add">+</span>
+<span class="diff-ctx">         icmp_reflect(m);</span>
+<span class="diff-ctx">         so->so_m = NULL; /* Don't m_free() it again! */</span>
+<span class="diff-ctx">     }</span></pre>
+        </div>
+      </div>
+
+      <!-- ADVISORY DATABASES -->
+      <div style="margin-top: 30px;">
+        <span class="stack-label" style="display: block; margin-bottom: 10px;">Official Database Records & Industry Advisories</span>
+        <div class="advisory-links-grid">
+          <a href="https://access.redhat.com/security/cve/cve-2026-115449" target="_blank" rel="noopener" class="adv-link-card">
+            <span>Red Hat Advisory</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2558916" target="_blank" rel="noopener" class="adv-link-card">
+            <span>Red Hat Bugzilla #2558916</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          <a href="https://nvd.nist.gov/vuln/detail/cve-2026-115449" target="_blank" rel="noopener" class="adv-link-card">
+            <span>NIST NVD Record</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          <a href="https://www.cve.org/CVERecord?id=CVE-2026-115449" target="_blank" rel="noopener" class="adv-link-card">
+            <span>CVE.org Official Record</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          <a href="https://github.com/advisories/GHSA-pg96-xmqg-mmpv" target="_blank" rel="noopener" class="adv-link-card">
+            <span>GitHub Advisory (GHSA)</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/commit/262c9be27bc79e16b369807b460be77e23c3d788" target="_blank" rel="noopener" class="adv-link-card">
+            <span>GitLab Upstream Fix</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          <a href="https://www.tenable.com/cve/CVE-2026-115449" target="_blank" rel="noopener" class="adv-link-card">
+            <span>Tenable CVE Record</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          <a href="https://www.rapid7.com/db/vulnerabilities/cve-2026-115449/" target="_blank" rel="noopener" class="adv-link-card">
+            <span>Rapid7 Vuln DB</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- PERSONAL PROJECTS & OFFENSIVE R&D -->
+<section id="projects" class="section-wrap">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-kicker">
+        <div class="kicker-line"></div>
+        <span class="kicker-text">Research & Engineering</span>
+      </div>
+      <h2 class="section-h2">Proprietary Tooling & <span>Projects</span></h2>
+      <p class="section-sub">
+        Selected research frameworks and offensive engineering projects authored by founder Piyusha Akash covering Windows internals, syscall mechanics, kernel execution, and endpoint visibility.
+      </p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="kernel">Windows Kernel & Syscalls</button>
+      <button class="filter-btn" data-filter="evasion">AV / EDR Evasion</button>
+      <button class="filter-btn" data-filter="tooling">Offensive Tooling</button>
+      <button class="filter-btn" data-filter="kb">Knowledge Bases</button>
+    </div>
+
+    <div class="projects-grid">
+      
+      <!-- Lethe (Featured) -->
+      <article class="project-card featured" data-category="kernel evasion tooling">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat">Windows Kernel Research</span>
+            <span class="badge badge-red">Active Research</span>
+          </div>
+          <h3 class="project-title">Lethe</h3>
+          <p class="project-desc">
+            Windows kernel-mode research and red team tool centered on a KTIMER, KDPC, and IO_WORKITEM execution chain. Investigates kernel-mode execution, process and token structures, driver visibility constraints, endpoint detection surfaces, and defensive boundaries (HVCI, driver blocklists, protected processes).
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">C</span>
+            <span class="tag-pill">Windows WDK</span>
+            <span class="tag-pill">Kernel APIs</span>
+            <span class="tag-pill">AV/EDR Research</span>
+            <span class="tag-pill">BYOVD</span>
+            <span class="tag-pill">KDPC</span>
+            <span class="tag-pill">KTIMER</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/0x3xp/Lethe" target="_blank" rel="noopener">Repository ↗</a>
+          <a href="https://github.com/0x3xp/Lethe/blob/main/WIKI.md" target="_blank" rel="noopener">Technical Wiki ↗</a>
+          <a href="https://github.com/0x3xp/Lethe/blob/main/BYOVD.md" target="_blank" rel="noopener">BYOVD Notes ↗</a>
+        </div>
+      </article>
+
+      <!-- Artemis -->
+      <article class="project-card" data-category="kernel evasion tooling">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat">Syscall Research Toolkit</span>
+            <span class="badge">Active Research</span>
+          </div>
+          <h3 class="project-title">Artemis</h3>
+          <p class="project-desc">
+            A modular C and x86-64 Assembly framework for Windows NT research. Covers System Service Number (SSN) resolution, direct and indirect syscall stub generation, and payload encoding components. Built for controlled research into syscall dispatch mechanics.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">C</span>
+            <span class="tag-pill">x64 Assembly</span>
+            <span class="tag-pill">MASM</span>
+            <span class="tag-pill">Windows NT</span>
+            <span class="tag-pill">Syscalls</span>
+            <span class="tag-pill">SSN Resolution</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/0x3xp/Artemis" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
+
+      <!-- Native Adversary Framework -->
+      <article class="project-card" data-category="evasion tooling">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat">Windows Offensive Tooling</span>
+            <span class="badge">Research Toolkit</span>
+          </div>
+          <h3 class="project-title">Native Adversary Framework</h3>
+          <p class="project-desc">
+            A low-level Windows research collection covering native API usage, PE parsing, process injection techniques, shellcode execution, and assembly-level resolution. Also includes SetupAPI callback redirection research for EDR evasion surface analysis.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">C</span>
+            <span class="tag-pill">x64 Assembly</span>
+            <span class="tag-pill">Win32</span>
+            <span class="tag-pill">NT Native API</span>
+            <span class="tag-pill">PE Parsing</span>
+            <span class="tag-pill">Process Injection</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/0x3xp/Native-Adversary-Framework" target="_blank" rel="noopener">Repository ↗</a>
+          <a href="https://github.com/0x3xp/Native-Adversary-Framework/tree/main/Malware-Dev/Injection/SetupAPI-Callback-Redirection" target="_blank" rel="noopener">SetupAPI Research ↗</a>
+        </div>
+      </article>
+
+      <!-- SENTINEX -->
+      <article class="project-card" data-category="tooling">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat">Windows Reconnaissance</span>
+            <span class="badge">Active Development</span>
+          </div>
+          <h3 class="project-title">SENTINEX</h3>
+          <p class="project-desc">
+            A modular Windows reconnaissance framework written in C for security testing, system enumeration, network discovery, and endpoint visibility research. Designed for operator use in controlled test environments.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">C</span>
+            <span class="tag-pill">Windows x64</span>
+            <span class="tag-pill">Reconnaissance</span>
+            <span class="tag-pill">Enumeration</span>
+            <span class="tag-pill">Network Discovery</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/0x3xp/SENTINEX" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
+
+      <!-- WinSec -->
+      <article class="project-card" data-category="kb">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat">Windows Security Knowledge Base</span>
+            <span class="badge">Ongoing</span>
+          </div>
+          <h3 class="project-title">WinSec</h3>
+          <p class="project-desc">
+            A consolidated Windows security research and learning archive covering WinAPI internals, native APIs, PE structures, assembly, shellcode, processes and memory, reverse engineering, and endpoint security research.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">Windows</span>
+            <span class="tag-pill">Win32</span>
+            <span class="tag-pill">NT API</span>
+            <span class="tag-pill">PE Structures</span>
+            <span class="tag-pill">Assembly</span>
+            <span class="tag-pill">Reverse Eng</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/0x3xp/WinSec" target="_blank" rel="noopener">Repository ↗</a>
+          <a href="https://0x3xp.github.io/WinSec/" target="_blank" rel="noopener">Interactive Documentation ↗</a>
+        </div>
+      </article>
+
+      <!-- Linux ExploitDev -->
+      <article class="project-card" data-category="kb">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat">Exploit Development Research</span>
+            <span class="badge">Published Work</span>
+          </div>
+          <h3 class="project-title">Linux ExploitDev</h3>
+          <p class="project-desc">
+            A practical knowledge base for Linux x64 exploit development covering memory layout, assembly concepts, shellcode construction, and the mechanics of classic exploitation techniques. Includes GDB-based analysis workflows.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">C</span>
+            <span class="tag-pill">x86-64</span>
+            <span class="tag-pill">Linux</span>
+            <span class="tag-pill">GDB</span>
+            <span class="tag-pill">Memory Layout</span>
+            <span class="tag-pill">Exploit Dev</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/0x3xp/Linux-ExploitDev" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- UPSTREAM CONTRIBUTIONS (LIBSLIRP 7 MERGED COMMITS) -->
+<section id="upstream-section" class="section-wrap">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-kicker">
+        <div class="kicker-line"></div>
+        <span class="kicker-text">Open Source Systems Engineering</span>
+      </div>
+      <h2 class="section-h2">Upstream Security Patches: <span>libslirp</span></h2>
+      <p class="section-sub">
+        7 security, memory safety, resource management, and concurrency fixes authored by Piyusha Akash merged into production <strong>freedesktop.org / libslirp</strong>—the virtualization network stack in QEMU.
+      </p>
+    </div>
+
+    <div class="upstream-list">
+      
+      <!-- Commit 1: CVE-2026-115449 -->
+      <div class="upstream-item" style="border-left: 3px solid var(--red);">
+        <div class="upstream-header-row">
+          <h3 class="upstream-item-title">
+            <span>[CVE-2026-115449]</span> Echo reply length desynchronization in <code>icmp_receive()</code> & <code>icmp6_receive()</code>
+          </h3>
+          <span class="badge badge-red">CVE-2026-115449 · Merged</span>
+        </div>
+        <p class="upstream-item-desc">
+          Length field desynchronization in ICMP echo replies when raw socket fallback path is taken leaks host hypervisor LAN IP address to guest virtual machine, breaking user-mode NAT containment.
+        </p>
+        <div class="upstream-links-row">
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/commit/262c9be27bc79e16b369807b460be77e23c3d788" target="_blank" rel="noopener">GitLab Commit 262c9be ↗</a>
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/work_items/105" target="_blank" rel="noopener">Work Item #105 ↗</a>
+          <a href="https://access.redhat.com/security/cve/cve-2026-115449" target="_blank" rel="noopener">Red Hat Advisory ↗</a>
+          <a href="cve-2026-115449.html">View Advisory Deep Dive →</a>
+        </div>
+      </div>
+
+      <!-- Commit 2 -->
+      <div class="upstream-item">
+        <div class="upstream-header-row">
+          <h3 class="upstream-item-title">
+            Memory leak of <code>tftp_server_name</code> in <code>slirp_cleanup()</code>
+          </h3>
+          <span class="badge badge-green">Merged</span>
+        </div>
+        <p class="upstream-item-desc">
+          <code>tftp_server_name</code> was heap-allocated during initialization but never freed in the cleanup path <code>slirp_cleanup()</code>, causing a persistent memory leak on every virtual machine teardown in QEMU.
+        </p>
+        <div class="upstream-links-row">
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/commit/fe2501e799862d6fa6adb4c5e1358567ebd8c065" target="_blank" rel="noopener">GitLab Commit fe2501e ↗</a>
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/work_items/99" target="_blank" rel="noopener">Work Item #99 ↗</a>
+        </div>
+      </div>
+
+      <!-- Commit 3 -->
+      <div class="upstream-item">
+        <div class="upstream-header-row">
+          <h3 class="upstream-item-title">
+            Buffer underflow in <code>tftp_handle_rrq()</code> when handling empty filename
+          </h3>
+          <span class="badge badge-green">Merged</span>
+        </div>
+        <p class="upstream-item-desc">
+          When a TFTP read request (RRQ) was received with an empty filename, <code>tftp_handle_rrq()</code> performed pointer arithmetic that resulted in a buffer underflow, reading out-of-bounds memory before the start of the buffer.
+        </p>
+        <div class="upstream-links-row">
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/commit/9fd2fa698886a9c222090424d6e708709db13d8d" target="_blank" rel="noopener">GitLab Commit 9fd2fa6 ↗</a>
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/work_items/100" target="_blank" rel="noopener">Work Item #100 ↗</a>
+        </div>
+      </div>
+
+      <!-- Commit 4 -->
+      <div class="upstream-item">
+        <div class="upstream-header-row">
+          <h3 class="upstream-item-title">
+            Protocol type mismatch in <code>icmp6_receive()</code>: IPv4 <code>ICMP_UNREACH</code> emitted as ICMPv6
+          </h3>
+          <span class="badge badge-green">Merged</span>
+        </div>
+        <p class="upstream-item-desc">
+          An IPv4 <code>ICMP_UNREACH</code> error was incorrectly emitted using the ICMPv6 send path. This protocol mismatch caused malformed packets to be transmitted, breaking network error signaling.
+        </p>
+        <div class="upstream-links-row">
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/commit/0bda8ef0c47d2a45980a2d480312c000e6bc9b11" target="_blank" rel="noopener">GitLab Commit 0bda8ef ↗</a>
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/work_items/101" target="_blank" rel="noopener">Work Item #101 ↗</a>
+        </div>
+      </div>
+
+      <!-- Commit 5 -->
+      <div class="upstream-item">
+        <div class="upstream-header-row">
+          <h3 class="upstream-item-title">
+            Double socket descriptor leak in <code>fork_exec()</code> on argument parsing failure
+          </h3>
+          <span class="badge badge-green">Merged</span>
+        </div>
+        <p class="upstream-item-desc">
+          Two connected socket descriptors allocated via <code>slirp_socketpair_with_oob()</code> were never closed if argument parsing failed prior to the fork, risking file descriptor exhaustion and denial of service.
+        </p>
+        <div class="upstream-links-row">
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/commit/8bb18d3043eeb463955856c3242fef9a788d4280" target="_blank" rel="noopener">GitLab Commit 8bb18d3 ↗</a>
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/work_items/102" target="_blank" rel="noopener">Work Item #102 ↗</a>
+        </div>
+      </div>
+
+      <!-- Commit 6 -->
+      <div class="upstream-item">
+        <div class="upstream-header-row">
+          <h3 class="upstream-item-title">
+            Socket heap memory & buffer leak in <code>slirp_state_load()</code> on deserialization failure
+          </h3>
+          <span class="badge badge-green">Merged</span>
+        </div>
+        <p class="upstream-item-desc">
+          If deserialization of a socket failed partway through in <code>slirp_state_load()</code>, allocated socket structures and buffers were not freed before returning, resulting in heap leaks during failed VM state restore operations.
+        </p>
+        <div class="upstream-links-row">
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/commit/7e571d1e0f6d2750f9e0c7272512e6f0c78bf3c8" target="_blank" rel="noopener">GitLab Commit 7e571d1 ↗</a>
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/work_items/103" target="_blank" rel="noopener">Work Item #103 ↗</a>
+        </div>
+      </div>
+
+      <!-- Commit 7 -->
+      <div class="upstream-item">
+        <div class="upstream-header-row">
+          <h3 class="upstream-item-title">
+            Non-reentrant static variable in <code>tcp_emu()</code> corrupts protocol parser across sessions
+          </h3>
+          <span class="badge badge-green">Merged</span>
+        </div>
+        <p class="upstream-item-desc">
+          A static local variable was used to track parser state. Concurrent or interleaved network sessions corrupted each other's protocol state, causing silent packet parsing failures across multi-instance virtual hypervisors.
+        </p>
+        <div class="upstream-links-row">
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/commit/5a49e5e290093e2ff83b388330501e20de0bddcf" target="_blank" rel="noopener">GitLab Commit 5a49e5e ↗</a>
+          <a href="https://gitlab.freedesktop.org/slirp/libslirp/-/work_items/104" target="_blank" rel="noopener">Work Item #104 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- TEAM & FOUNDER -->
+<section id="team" class="section-wrap">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-kicker">
+        <div class="kicker-line"></div>
+        <span class="kicker-text">The Team</span>
+      </div>
+      <h2 class="section-h2">Built by practitioners,<br><span>not consultants.</span></h2>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-left">
+        <h3 class="person-name">Piyusha Akash</h3>
+        <span class="person-handle">0x3xp</span>
+        <p class="person-role">Founder — Lead Security Researcher</p>
+        
+        <ul class="person-focus">
+          <li>AV/EDR Evasion and Detection Surface Research</li>
+          <li>Windows Internals and Kernel-Mode Research</li>
+          <li>Vulnerability Research (libslirp / CVE-2026-115449)</li>
+          <li>Malware Development and Custom Implant Engineering</li>
+          <li>Reverse Engineering and x64 Binary Analysis</li>
+          <li>Red Team Operations and Adversary Emulation</li>
+          <li>Penetration Testing — Web, API, Network, and Host</li>
+        </ul>
+
+        <div class="person-links">
+          <a href="https://0x3xp.github.io" target="_blank" rel="noopener">Founder Portfolio ↗</a>
+          <a href="https://github.com/0x3xp" target="_blank" rel="noopener">Personal GitHub ↗</a>
+          <a href="https://linkedin.com/in/piyushaakash" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://0x3xp.github.io/contributions/" target="_blank" rel="noopener">Contributions ↗</a>
+        </div>
+      </div>
+
+      <div class="team-right">
+        <p class="stack-label">Core Technical Stack</p>
+        <div class="stack-grid">
+          <div class="stack-item"><strong>Languages</strong>C / C++, Assembly x86-64, Python</div>
+          <div class="stack-item"><strong>Assembly</strong>x86-64, MASM, NASM, Inline ASM</div>
+          <div class="stack-item"><strong>APIs</strong>Win32, NT Native API, Windows WDK</div>
+          <div class="stack-item"><strong>Research</strong>Windows Internals, Hypervisors, TCP/IP</div>
+          <div class="stack-item"><strong>Disassembly</strong>IDA Pro, Ghidra, Binary Ninja</div>
+          <div class="stack-item"><strong>Debugging</strong>WinDbg, x64dbg, GDB</div>
+          <div class="stack-item"><strong>Scripting</strong>Bash, PowerShell, Python</div>
+          <div class="stack-item"><strong>Platforms</strong>Windows (User & Kernel), Linux</div>
+        </div>
+
+        <p class="stack-label">Key Research Frameworks</p>
+        <div class="stack-grid">
+          <div class="stack-item"><strong>Kernel Tooling</strong>Lethe — KTIMER/KDPC/IO_WORKITEM</div>
+          <div class="stack-item"><strong>Syscall Forge</strong>Artemis — Direct & Indirect Syscalls</div>
+          <div class="stack-item"><strong>EDR Evasion Lab</strong>Native Adversary Framework</div>
+          <div class="stack-item"><strong>Host Discovery</strong>SENTINEX — Windows Recon</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- CONTACT -->
+<section id="contact" class="section-wrap">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div class="section-header">
+        <div class="section-kicker">
+          <div class="kicker-line"></div>
+          <span class="kicker-text">Contact</span>
+        </div>
+        <h2 class="section-h2">Get in touch.</h2>
+        <p class="section-sub">
+          Available for authorized engagements, custom offensive tooling development, security research collaboration, and red teaming. All research conducted strictly in controlled environments.
+        </p>
+      </div>
+
+      <div class="contact-channels">
+        <!-- Email -->
+        <div class="channel">
+          <div class="channel-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+          </div>
+          <span class="channel-label">Email</span>
+          <span class="channel-value">manifoldoperations@gmail.com</span>
+          <a href="mailto:manifoldoperations@gmail.com" class="channel-action">Send Email →</a>
+        </div>
+
+        <!-- WhatsApp -->
+        <div class="channel">
+          <div class="channel-icon">
+            <svg viewBox="0 0 24 24" fill="#cc0000">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+            </svg>
+          </div>
+          <span class="channel-label">WhatsApp</span>
+          <span class="channel-value">@manifoldoperations</span>
+          <a href="https://wa.me/manifoldoperations" target="_blank" rel="noopener" class="channel-action">Message on WhatsApp →</a>
+        </div>
+
+        <!-- X (Twitter) -->
+        <div class="channel">
+          <div class="channel-icon">
+            <svg viewBox="0 0 24 24" fill="#cc0000">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </div>
+          <span class="channel-label">X (Twitter)</span>
+          <span class="channel-value">@manifoldops</span>
+          <a href="https://x.com/manifoldops" target="_blank" rel="noopener" class="channel-action">Follow on X →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>© 2026 Manifold Operations</strong> · Founded by Piyusha Akash (<a href="https://0x3xp.github.io" target="_blank" rel="noopener" style="color: var(--red);">0x3xp</a>)
+    </div>
+    
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#cve-section">CVE-2026-115449</a>
+      <a href="#projects">Projects</a>
+      <a href="https://github.com/ManifoldOps" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/company/manifoldoperations" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+
+    <div class="footer-note">
+      Authorized engagements only. All research conducted in controlled sandbox environments.
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

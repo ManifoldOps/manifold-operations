@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Security Research & Projects — Manifold Operations</title>
+  <meta name="description" content="Security research and engineering projects by Piyusha Akash (0x3xp) & Manifold Operations — Windows kernel research, syscall frameworks, AV/EDR evasion, offensive tooling, and exploit development.">
+  <meta name="author" content="Piyusha Akash / Manifold Operations">
+  <link rel="canonical" href="https://manifoldoperations.vercel.app/projects">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Security Research & Projects | Manifold Operations">
+  <meta property="og:description" content="Windows kernel research, syscall engines, AV/EDR evasion, and offensive security tooling authored by Piyusha Akash (0x3xp).">
+  <meta property="og:url" content="https://manifoldoperations.vercel.app/projects">
+  <meta property="og:image" content="https://manifoldoperations.vercel.app/assets/logo.png">
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" class="brand-mark" alt="Manifold Operations Logo">
+      <span class="brand-name">Manifold Operations</span>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="cve-2026-115449.html">CVE Advisory</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="contributions.html">Contributions</a></li>
+      <li><a href="index.html#team">Team</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+    </ul>
+
+    <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-nav">
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">← Back to Main Page</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="cve-2026-115449.html">CVE-2026-115449 Advisory</a></li>
+    <li><a href="projects.html">Research & Projects</a></li>
+    <li><a href="contributions.html">Upstream Contributions</a></li>
+    <li><a href="index.html#team">Team</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="section-wrap" style="padding-top: 60px; padding-bottom: 40px; background: var(--surface);">
+  <div class="wrap">
+    <div style="margin-bottom: 20px;">
+      <a href="index.html" style="font-family: var(--mono); font-size: 12px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px;">
+        ← Back to Manifold Operations
+      </a>
+    </div>
+
+    <div class="section-kicker">
+      <div class="kicker-line"></div>
+      <span class="kicker-text">Offensive Engineering · Systems Research</span>
+    </div>
+
+    <h1 class="section-h2" style="font-size: clamp(28px, 4vw, 48px); margin-bottom: 18px;">
+      Security Research & <span>Proprietary Projects</span>
+    </h1>
+
+    <p class="section-sub" style="max-width: 820px; font-size: 17px;">
+      Selected offensive security engineering, kernel-mode research, Windows NT syscall architectures, evasion frameworks, and upstream vulnerability disclosures authored by Piyusha Akash (0x3xp).
+    </p>
+
+    <!-- Upstream highlight banner -->
+    <div style="margin-top: 28px; background: var(--bg); border: 1px solid var(--border); border-left: 3px solid var(--red); padding: 16px 20px; border-radius: var(--radius-sm); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+      <div>
+        <span style="font-family: var(--mono); font-size: 11px; color: var(--red); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 4px;">Upstream Systems Vulnerability Disclosure</span>
+        <strong style="color: var(--text); font-size: 15px;">CVE-2026-115449 in libslirp · 7 Patches Merged</strong>
+        <p style="font-size: 13px; color: var(--muted); margin-top: 2px;">Acknowledged by Red Hat Product Security · Hypervisor NAT isolation bypass</p>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <a href="cve-2026-115449.html" class="btn btn-sm btn-red-outline">View Advisory →</a>
+        <a href="contributions.html" class="btn btn-sm btn-outline">All 7 Commits →</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="rule"></div>
+
+<!-- MAIN PROJECTS LIST -->
+<main class="section-wrap" style="padding-top: 64px;">
+  <div class="wrap">
+    
+    <!-- Filter Buttons -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="kernel">Windows Kernel & Syscalls</button>
+      <button class="filter-btn" data-filter="evasion">AV / EDR Evasion</button>
+      <button class="filter-btn" data-filter="tooling">Offensive Tooling</button>
+      <button class="filter-btn" data-filter="kb">Knowledge Bases</button>
+    </div>
+
+    <div class="projects-grid">
+      
+      <!-- Lethe -->
+      <article class="project-card featured" data-category="kernel evasion tooling">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat">Windows Kernel Research</span>
+            <span class="badge badge-red">Active Research</span>
+          </div>
+          <h2 class="project-title">Lethe</h2>
+          <p class="project-desc">
+            Lethe is a Windows kernel-mode research and red team tool centered on a KTIMER, KDPC, and IO_WORKITEM execution chain. The project investigates kernel-mode execution, process and token structures, driver visibility and loading constraints, endpoint detection surfaces, and the defensive boundaries around kernel-level activity.
+          </p>
+          <p class="project-desc" style="font-size: 13px; color: var(--text-dim); margin-top: 8px;">
+            Project documentation records technical findings alongside limitations and defensive surfaces, including kernel telemetry, direct memory inspection, HVCI, driver blocklists, and protected process constraints. Built with C and the Windows Driver Development Kit.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">C</span>
+            <span class="tag-pill">Windows WDK</span>
+            <span class="tag-pill">Kernel APIs</span>
+            <span class="tag-pill">Windows Internals</span>
+            <span class="tag-pill">AV/EDR Research</span>
+            <span class="tag-pill">DPC</span>
+            <span class="tag-pill">KTIMER</span>
+            <span class="tag-pill">BYOVD</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/0x3xp/Lethe" target="_blank" rel="noopener">Repository ↗</a>
+          <a href="https://github.com/0x3xp/Lethe/blob/main/WIKI.md" target="_blank" rel="noopener">Technical Wiki ↗</a>
+          <a href="https://github.com/0x3xp/Lethe/blob/main/BYOVD.md" target="_blank" rel="noopener">BYOVD Notes ↗</a>
+        </div>
+      </article>
+
+      <!-- Artemis -->
+      <article class="project-card" data-category="kernel evasion tooling">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat">Syscall Research Toolkit</span>
+            <span class="badge">Active Research</span>
+          </div>
+          <h2 class="project-title">Artemis</h2>
+          <p class="project-desc">
+            A modular C and x86-64 Assembly framework for Windows NT research. Covers system service number (SSN) resolution, direct and indirect syscall stub generation, and payload encoding components. Designed for controlled research into syscall dispatch mechanics.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">C</span>
+            <span class="tag-pill">x64 Assembly</span>
+            <span class="tag-pill">MASM</span>
+            <span class="tag-pill">Windows NT</span>
+            <span class="tag-pill">Syscalls</span>
+            <span class="tag-pill">Direct Syscalls</span>
+            <span class="tag-pill">Indirect Syscalls</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/0x3xp/Artemis" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
+
+      <!-- Native Adversary Framework -->
+      <article class="project-card" data-category="evasion tooling">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat">Windows Offensive Tooling</span>
+            <span class="badge">Research Toolkit</span>
+          </div>
+          <h2 class="project-title">Native Adversary Framework</h2>
+          <p class="project-desc">
+            A low-level Windows research collection covering native API usage, PE parsing, process injection techniques, shellcode execution, and assembly-level resolution. Also includes SetupAPI callback redirection research for EDR evasion surface analysis.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">C</span>
+            <span class="tag-pill">x64 Assembly</span>
+            <span class="tag-pill">Win32</span>
+            <span class="tag-pill">NT Native API</span>
+            <span class="tag-pill">PE Parsing</span>
+            <span class="tag-pill">Process Injection</span>
+            <span class="tag-pill">SetupAPI Redirection</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/0x3xp/Native-Adversary-Framework" target="_blank" rel="noopener">Repository ↗</a>
+          <a href="https://github.com/0x3xp/Native-Adversary-Framework/tree/main/Malware-Dev/Injection/SetupAPI-Callback-Redirection" target="_blank" rel="noopener">SetupAPI Research ↗</a>
+        </div>
+      </article>
+
+      <!-- SENTINEX -->
+      <article class="project-card" data-category="tooling">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat">Windows Reconnaissance</span>
+            <span class="badge">Active Development</span>
+          </div>
+          <h2 class="project-title">SENTINEX</h2>
+          <p class="project-desc">
+            A modular Windows reconnaissance framework written in C for security testing, system enumeration, network discovery, and endpoint visibility research. Designed for operator use in controlled test environments.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">C</span>
+            <span class="tag-pill">Windows x64</span>
+            <span class="tag-pill">Reconnaissance</span>
+            <span class="tag-pill">Enumeration</span>
+            <span class="tag-pill">Network Discovery</span>
+            <span class="tag-pill">Operator Tooling</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/0x3xp/SENTINEX" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
+
+      <!-- WinSec -->
+      <article class="project-card" data-category="kb">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat">Windows Security Knowledge Base</span>
+            <span class="badge">Ongoing</span>
+          </div>
+          <h2 class="project-title">WinSec</h2>
+          <p class="project-desc">
+            A consolidated Windows security research and learning archive covering WinAPI internals, native APIs, PE structures, assembly, shellcode, processes and memory, reverse engineering, and endpoint security research.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">Windows</span>
+            <span class="tag-pill">Win32</span>
+            <span class="tag-pill">NT API</span>
+            <span class="tag-pill">PE Structures</span>
+            <span class="tag-pill">Assembly</span>
+            <span class="tag-pill">Reverse Eng</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/0x3xp/WinSec" target="_blank" rel="noopener">Repository ↗</a>
+          <a href="https://0x3xp.github.io/WinSec/" target="_blank" rel="noopener">Documentation Pages ↗</a>
+        </div>
+      </article>
+
+      <!-- Linux ExploitDev -->
+      <article class="project-card" data-category="kb">
+        <div class="project-top">
+          <div class="project-meta-row">
+            <span class="project-cat">Exploit Development Research</span>
+            <span class="badge">Published Work</span>
+          </div>
+          <h2 class="project-title">Linux ExploitDev</h2>
+          <p class="project-desc">
+            A practical knowledge base for Linux x64 exploit development covering memory layout, assembly concepts, shellcode construction, and the mechanics of classic exploitation techniques. Includes GDB-based analysis workflows.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">C</span>
+            <span class="tag-pill">x86-64</span>
+            <span class="tag-pill">Linux</span>
+            <span class="tag-pill">GDB</span>
+            <span class="tag-pill">Memory Layout</span>
+            <span class="tag-pill">Shellcoding</span>
+            <span class="tag-pill">Exploit Dev</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/0x3xp/Linux-ExploitDev" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</main>
+
+<div class="rule"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>© 2026 Manifold Operations</strong> · Founded by Piyusha Akash (<a href="https://0x3xp.github.io" target="_blank" rel="noopener" style="color: var(--red);">0x3xp</a>)
+    </div>
+    
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="cve-2026-115449.html">CVE-2026-115449</a>
+      <a href="contributions.html">Contributions</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+
+    <div class="footer-note">
+      Authorized engagements only. All research conducted in controlled sandbox environments.
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
